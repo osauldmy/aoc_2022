@@ -1,0 +1,8 @@
+# python
+__pycache__/
+*.py[cod]
+
+.__venv*__/
+__venv*__/
+venv*/
+.venv*/
