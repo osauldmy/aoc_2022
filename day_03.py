@@ -12,12 +12,11 @@ with open(pathlib.Path(__file__).parent / "day_03.input.txt") as f:
 priorities = dict(zip(string.ascii_letters, range(1, len(string.ascii_letters) + 1)))
 
 halfstrings_intersects = map(
-    set.pop, map(lambda s: set(s[len(s) // 2 :]) & set(s[: len(s) // 2]), rucksacks)
+    lambda s: (set(s[len(s) // 2 :]) & set(s[: len(s) // 2])).pop(), rucksacks
 )
 
 # First puzzle answer
 print(sum(map(priorities.get, halfstrings_intersects)))
-
 
 triplewise_intersects = map(
     lambda x: functools.reduce(set.intersection, x).pop(),
