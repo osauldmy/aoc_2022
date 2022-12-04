@@ -5,7 +5,7 @@ import pathlib
 
 # Instead of dealing with splitting by 2 delimiters, change comma to dash
 # and then split and map to int 4 integers which will represent start and end of
-# each interval, then it's enough to look at them as (non)-sorted sequences.
+# each interval, then it's enough to look at them as (non-)sorted sequences.
 with open(pathlib.Path(__file__).parent / "day_04.input.txt") as f:
     data = f.read().strip("\n").replace(",", "-").split("\n")
 
@@ -18,7 +18,7 @@ smaller_intervals_within_bigger = itertools.starmap(
 )
 
 # First puzzle answer
-print(sum(smaller_intervals_within_bigger))
+print(len(tuple(filter(bool, smaller_intervals_within_bigger))))
 
 have_overlaps = itertools.starmap(
     lambda a, b, x, y: set(range(a, b + 1)) & set(range(x, y + 1)), intervals
