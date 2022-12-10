@@ -20,9 +20,9 @@ for instruction in data:
 print(sum(map(lambda cycle: cycle * log[cycle - 1], range(20, 221, 40))))
 
 # Second puzzle answer
-line = ["."] * 40
+line = [" "] * 40
 for index, x in zip(itertools.cycle(range(0, 40)), log):
-    line[index] = "#" if index in (x - 1, x, x + 1) else "."
+    line[index] = "#" if index in (x - 1, x, x + 1) else " "
     if index == 39:
         print(" ".join(line))
-        line = ["."] * 40
+        line = [" "] * 40
