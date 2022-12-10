@@ -5,7 +5,7 @@ import operator
 import pathlib
 import re
 
-with open(pathlib.Path(__file__).parent / "day_05.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_05.txt") as f:
     text_stacks, text_moves = f.read().strip("\n").split("\n\n")
 
 stacks_n = 9

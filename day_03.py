@@ -6,7 +6,7 @@ import string
 import more_itertools
 
 
-with open(pathlib.Path(__file__).parent / "day_03.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_03.txt") as f:
     rucksacks = f.read().strip("\n").split("\n")
 
 priorities = dict(zip(string.ascii_letters, range(1, len(string.ascii_letters) + 1)))

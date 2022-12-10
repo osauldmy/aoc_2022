@@ -6,7 +6,7 @@ import pathlib
 # Instead of dealing with splitting by 2 delimiters, change comma to dash
 # and then split and map to int 4 integers which will represent start and end of
 # each interval, then it's enough to look at them as (non-)sorted sequences.
-with open(pathlib.Path(__file__).parent / "day_04.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_04.txt") as f:
     data = f.read().strip("\n").replace(",", "-").split("\n")
 
 is_sorted = lambda x: all(itertools.starmap(operator.le, itertools.pairwise(x)))

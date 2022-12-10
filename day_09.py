@@ -5,7 +5,7 @@ import pathlib
 
 chebyshev = lambda x1, x2: max(map(abs, map(operator.sub, x1, x2)))
 
-with open(pathlib.Path(__file__).parent / "day_09.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_09.txt") as f:
     data = f.read().strip("\n").split("\n")
 
 moves = tuple(map(lambda x: (x.split(" ")[0], int(x.split(" ")[1])), data))

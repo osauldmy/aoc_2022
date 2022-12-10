@@ -2,7 +2,7 @@
 import pathlib
 
 
-with open(pathlib.Path(__file__).parent / "day_01.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_01.txt") as f:
     data = f.read()
 
 elves_carriages = tuple(

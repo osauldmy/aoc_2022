@@ -3,7 +3,7 @@ import itertools
 import pathlib
 
 
-with open(pathlib.Path(__file__).parent / "day_10.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_10.txt") as f:
     data = f.read().strip("\n").split("\n")
 
 

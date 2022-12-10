@@ -22,7 +22,7 @@ def second(round: str) -> int:
 
 
 translation = str.maketrans("AXBYCZ", "112233")
-with open(pathlib.Path(__file__).parent / "day_02.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_02.txt") as f:
     rounds = f.read().translate(translation).strip("\n").split("\n")
 
 # First puzzle answer

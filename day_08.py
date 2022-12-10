@@ -21,7 +21,7 @@ def takewhile_with_last(
             return
 
 
-with open(pathlib.Path(__file__).parent / "day_08.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_08.txt") as f:
     data = f.read().strip("\n").split("\n")
 
 forest = tuple(map(lambda x: tuple(map(int, x)), data))

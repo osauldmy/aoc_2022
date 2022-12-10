@@ -4,7 +4,7 @@ import functools
 import pathlib
 
 
-with open(pathlib.Path(__file__).parent / "day_07.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_07.txt") as f:
     data = f.read().strip("\n").split("\n")
 
 file_sizes, tree = {}, collections.defaultdict(set)

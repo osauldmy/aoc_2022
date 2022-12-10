@@ -3,7 +3,7 @@ import pathlib
 
 import more_itertools
 
-with open(pathlib.Path(__file__).parent / "day_06.input.txt") as f:
+with open(pathlib.Path(__file__).parent / "input" / "day_06.txt") as f:
     data = f.read().strip("\n")
 
 
