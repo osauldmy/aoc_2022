@@ -55,3 +55,7 @@ for _ in range(20):
 
 # First puzzle answer
 print(operator.mul(*sorted(monkey.inspected for monkey in monkeys.values())[-2:]))
+
+
+# Second puzzle answer
+print("todo")
