@@ -11,9 +11,6 @@ if typing.TYPE_CHECKING:
     Grid = tuple[list[str], ...]
     Point = tuple[int, int]
 
-with open(pathlib.Path(__file__).parent / "input" / "day_12.txt") as f:
-    data = f.read().strip("\n")
-
 
 def find_point(grid: Grid, string: str) -> Iterator[Point]:
     for y, _ in filter(lambda x: x[1], enumerate(string in row for row in grid)):
@@ -63,6 +60,9 @@ def constrained_bfs(grid: Grid, start: Point, end: Point) -> dict[Point, Point]:
 
 
 if __name__ == "__main__":
+    with open(pathlib.Path(__file__).parent / "input" / "day_12.txt") as f:
+        data = f.read().strip("\n")
+
     grid: Grid = tuple(map(list, data.split("\n")))
     start, end = next(find_point(grid, "S")), next(find_point(grid, "E"))
     grid[start[0]][start[1]] = "a"  # resetting S elevation to a
