@@ -8,20 +8,20 @@ import typing
 if typing.TYPE_CHECKING:
     from typing import Iterator
 
-    point = tuple[int, int]
+    Point = tuple[int, int]
 
 with open(pathlib.Path(__file__).parent / "input" / "day_12.txt") as f:
     data = f.read().strip("\n")
 
 
-def find_point(grid: tuple[list[str], ...], string: str) -> Iterator[point]:
+def find_point(grid: tuple[list[str], ...], string: str) -> Iterator[Point]:
     for y, _ in filter(lambda x: x[1], enumerate(string in row for row in grid)):
         for x, value in enumerate(grid[y]):
             if value == string:
                 yield y, x
 
 
-def get_path_length(path: dict[point, point], point: point) -> int:
+def get_path_length(path: dict[Point, Point], point: Point) -> int:
     """
     0 indicates there was no path from start to end
     """
@@ -31,8 +31,8 @@ def get_path_length(path: dict[point, point], point: point) -> int:
 
 
 def constrained_bfs(
-    grid: tuple[list[str], ...], start: point, end: point
-) -> dict[point, point]:
+    grid: tuple[list[str], ...], start: Point, end: Point
+) -> dict[Point, Point]:
     path, opened, closed = dict(), set(), set()
     Q = collections.deque((start,))
     while Q:
