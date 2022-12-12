@@ -39,13 +39,14 @@ def constrained_bfs(grid: Grid, start: Point, end: Point) -> dict[Point, Point]:
         if (y, x) == end:
             break
 
-        for n_y, n_x in (
+        for neighbor in (
             (y + 1, x),
             (y - 1, x),
             (y, x + 1),
             (y, x - 1),
         ):
-            if (n_y, n_x) in opened or (n_y, n_x) in closed:
+            n_y, n_x = neighbor
+            if neighbor in opened or neighbor in closed:
                 continue
 
             if n_y < 0 or n_x < 0 or n_y >= len(grid) or n_x >= len(grid[0]):
@@ -54,9 +55,9 @@ def constrained_bfs(grid: Grid, start: Point, end: Point) -> dict[Point, Point]:
             if ord(grid[n_y][n_x]) - ord(grid[y][x]) > 1:  # elevation constraint
                 continue
 
-            Q.append((n_y, n_x))
-            path[(n_y, n_x)] = (y, x)
-            opened.add((n_y, n_x))
+            Q.append(neighbor)
+            opened.add(neighbor)
+            path[neighbor] = (y, x)
         closed.add((y, x))
     return path
 
