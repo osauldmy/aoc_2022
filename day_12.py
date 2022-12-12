@@ -8,13 +8,14 @@ import typing
 if typing.TYPE_CHECKING:
     from typing import Iterator
 
+    Grid = tuple[list[str], ...]
     Point = tuple[int, int]
 
 with open(pathlib.Path(__file__).parent / "input" / "day_12.txt") as f:
     data = f.read().strip("\n")
 
 
-def find_point(grid: tuple[list[str], ...], string: str) -> Iterator[Point]:
+def find_point(grid: Grid, string: str) -> Iterator[Point]:
     for y, _ in filter(lambda x: x[1], enumerate(string in row for row in grid)):
         for x, value in enumerate(grid[y]):
             if value == string:
@@ -30,9 +31,7 @@ def get_path_length(path: dict[Point, Point], point: Point) -> int:
     return get_path_length(path, predecessor) + 1
 
 
-def constrained_bfs(
-    grid: tuple[list[str], ...], start: Point, end: Point
-) -> dict[Point, Point]:
+def constrained_bfs(grid: Grid, start: Point, end: Point) -> dict[Point, Point]:
     path, opened, closed = dict(), set(), set()
     Q = collections.deque((start,))
     while Q:
@@ -63,7 +62,7 @@ def constrained_bfs(
 
 
 if __name__ == "__main__":
-    grid: tuple[list[str], ...] = tuple(map(list, data.split("\n")))
+    grid: Grid = tuple(map(list, data.split("\n")))
     start, end = next(find_point(grid, "S")), next(find_point(grid, "E"))
     grid[start[0]][start[1]] = "a"  # resetting S elevation to a
     grid[end[0]][end[1]] = "z"  # resetting E elevation to z
