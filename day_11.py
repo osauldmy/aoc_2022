@@ -44,18 +44,17 @@ Monkey \d+:
     If false: throw to monkey (\d+)
 """
 
-monkeys = dict(enumerate(map(Monkey.parse, re.findall(pattern.strip("\n"), data))))
+monkeys = tuple(map(Monkey.parse, re.findall(pattern.strip("\n"), data)))
 
 for _ in range(20):
-    for monkey in monkeys.values():
+    for monkey in monkeys:
         while monkey.items:
             x = monkey.operation(monkey.items.popleft()) // 3
             monkeys[monkey.throw_to[x % monkey.divisible_by == 0]].items.append(x)
             monkey.inspected += 1
 
 # First puzzle answer
-print(operator.mul(*sorted(monkey.inspected for monkey in monkeys.values())[-2:]))
-
+print(operator.mul(*sorted(monkey.inspected for monkey in monkeys)[-2:]))
 
 # Second puzzle answer
 print("todo")
